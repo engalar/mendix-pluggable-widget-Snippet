@@ -1,11 +1,11 @@
 // import { useMemo } from "react";
-import { GraphContainerProps } from "../typings/GraphProps";
+import { SnippetContainerProps } from "../typings/SnippetProps";
 // import { ValueStatus } from "mendix";
 import classNames from "classnames";
 
 import "./ui/index.scss";
 
-export default function (props: GraphContainerProps) {
+export default function (props: SnippetContainerProps) {
     console.log(props);
     // const value = useMemo(() => {
     //     if (props.attribute && props.attribute.status === ValueStatus.Available) {
