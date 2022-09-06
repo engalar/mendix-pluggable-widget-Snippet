@@ -1,0 +1,37 @@
+<!doctype html>
+<html>
+
+<head>
+    {{unsupportedbrowser}}
+    <meta charset="utf-8">
+    <title>Mendix</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    {{themecss}}
+    {{appicons}}
+    {{manifest}}
+    {{startupimages}}
+    <script src='https://cdn.plot.ly/plotly-2.14.0.min.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.17/d3.min.js'></script>
+</head>
+
+<body dir="ltr">
+    <noscript>To use this application, please enable JavaScript.</noscript>
+    <div id="content"></div>
+    <script>
+        dojoConfig = {
+            isDebug: false,
+            useCustomLogger: true,
+            async: true,
+            baseUrl: "mxclientsystem/dojo/",
+            cacheBust: "{{cachebust}}",
+            rtlRedirect: "index-rtl.html"
+        };
+    </script>
+    <script>
+        if (!document.cookie || !document.cookie.match(/(^|;)originURI=/gi))
+            document.cookie = "originURI=/login.html" + (window.location.protocol === "https:" ? ";SameSite=None;Secure" : "");
+    </script>
+    <script src="mxclientsystem/mxui/mxui.js?{{cachebust}}"></script>
+</body>
+
+</html>

@@ -1,13 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<widget id="mendixcn.snippet.Snippet" pluginWidget="true" needsEntityContext="true" offlineCapable="true" supportedPlatform="Web" xmlns="http://www.mendix.com/widget/1.0/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mendix.com/widget/1.0/ ../node_modules/mendix/custom_widget.xsd">
+<widget id="mendixcn.snippet.Snippet" pluginWidget="true" needsEntityContext="true" offlineCapable="true" supportedPlatform="Web"
+    xmlns="http://www.mendix.com/widget/1.0/"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mendix.com/widget/1.0/ ../node_modules/mendix/custom_widget.xsd">
     <name>Snippet</name>
     <description>My widget description</description>
     <icon/>
     <properties>
-        <propertyGroup caption="General">
-            <property key="sampleText" type="string" required="false">
-                <caption>Default value</caption>
-                <description>Sample text input</description>
+        <propertyGroup caption="Html">
+            <property key="htmlContent" type="string" required="false" defaultValue="" multiline="true">
+                <caption>Html内容</caption>
+                <description></description>
+            </property>
+        </propertyGroup>
+        <propertyGroup caption="事件">
+            <property key="mountAction" type="action" required="false">
+                <caption>挂载事件</caption>
+                <description></description>
             </property>
         </propertyGroup>
     </properties>
