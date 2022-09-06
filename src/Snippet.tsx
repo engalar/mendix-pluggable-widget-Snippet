@@ -5,7 +5,7 @@ import "./ui/index.scss";
 import { useEffect, useRef, useState } from "react";
 import { useMount } from "ahooks";
 
-import { set } from 'dojo/html';
+import { set } from "dojo/html";
 
 export default function (props: SnippetContainerProps) {
     const ref = useRef<HTMLDivElement>(null);
@@ -20,14 +20,7 @@ export default function (props: SnippetContainerProps) {
             setHasTriggerMount(true);
             props.mountAction.execute();
         }
-        return () => {
+    }, [props.mountAction]);
 
-        }
-    }, [props.mountAction])
-
-
-    return (
-        <div ref={ref} style={props.style} className={classNames("mendixcn-snippet", props.class)}>
-        </div>
-    );
+    return <div ref={ref} style={props.style} className={classNames("mendixcn-snippet", props.class)}></div>;
 }
