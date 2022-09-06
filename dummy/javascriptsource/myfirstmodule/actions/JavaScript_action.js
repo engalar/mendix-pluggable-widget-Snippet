@@ -7,7 +7,6 @@
 // Other code you write will be lost the next time you deploy the project.
 import "mx-global";
 import { Big } from "big.js";
-import { resolveConfig } from "prettier";
 
 // BEGIN EXTRA CODE
 // END EXTRA CODE
