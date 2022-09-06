@@ -14,18 +14,19 @@ import { resolveConfig } from "prettier";
 
 /**
  * @param {string} widgetCommonName - 组件属性 Common -> Name
+ * @param {MxObject} contextObj
  * @returns {Promise.<void>}
  */
-export async function JavaScript_action(widgetCommonName) {
+export async function JavaScript_action(widgetCommonName, contextObj) {
 	// BEGIN USER CODE
 	return new Promise((resolve, reject) => {
-		d3.csv("https://raw.githubusercontent.com/plotly/datasets/master/finance-charts-apple.csv", function (err, rows) {
+		d3.csv("finance-charts-apple.csv", function(err, rows) {
 			if (err) {
 				reject(err);
 			}
 
 			function unpack(rows, key) {
-				return rows.map(function (row) { return row[key]; });
+				return rows.map(function(row) { return row[key]; });
 			}
 
 
@@ -81,7 +82,19 @@ export async function JavaScript_action(widgetCommonName) {
 				}
 			};
 
-			Plotly.newPlot(document.querySelector('.mx-name-' + widgetCommonName), data, layout, { responsive: true });
+			const divContainer = document.querySelector('.mx-name-' + widgetCommonName);
+
+			Plotly.newPlot(divContainer, data, layout, { responsive: true });
+			// Subscribe to changes in a specific attribute of an MxObject
+			var subscription = mx.data.subscribe({
+				guid: contextObj.getGuid(),
+				attr: "Attribute",
+				callback: function(guid, attr, value) {
+					Plotly.relayout(divContainer, { title: value });
+				}
+			});
+
+			// mx.data.unsubscribe(subscription);
 			resolve();
 		})
 	});
