@@ -3,7 +3,7 @@ import classNames from "classnames";
 
 import "./ui/index.scss";
 import { useEffect, useRef, useState } from "react";
-import { useMount } from "ahooks";
+import { useMount, useUnmount } from "ahooks";
 
 import { set } from "dojo/html";
 
@@ -21,6 +21,10 @@ export default function (props: SnippetContainerProps) {
             props.mountAction.execute();
         }
     }, [props.mountAction]);
+
+    useUnmount(() => {
+        props.unmountAction?.execute();
+    });
 
     return <div ref={ref} style={props.style} className={classNames("mendixcn-snippet", props.class)}></div>;
 }

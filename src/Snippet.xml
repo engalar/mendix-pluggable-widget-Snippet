@@ -17,6 +17,10 @@
                 <caption>挂载事件</caption>
                 <description></description>
             </property>
+            <property key="unmountAction" type="action" required="false">
+                <caption>卸载事件</caption>
+                <description></description>
+            </property>
         </propertyGroup>
     </properties>
 </widget>

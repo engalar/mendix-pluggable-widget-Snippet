@@ -13,6 +13,7 @@ export interface SnippetContainerProps {
     tabIndex?: number;
     htmlContent: string;
     mountAction?: ActionValue;
+    unmountAction?: ActionValue;
 }
 
 export interface SnippetPreviewProps {
@@ -22,4 +23,5 @@ export interface SnippetPreviewProps {
     readOnly: boolean;
     htmlContent: string;
     mountAction: {} | null;
+    unmountAction: {} | null;
 }
